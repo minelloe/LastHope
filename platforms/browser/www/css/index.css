@@ -62,12 +62,40 @@ body {
 }
 
 h1 {
+
     font-size:24px;
     font-weight:normal;
-    margin:0px;
+    margin: 0px;
     overflow:visible;
-    padding:0px;
+    padding:5%;
     text-align:center;
+    font-weight: 900;
+}
+
+.profilepicture {
+
+    display: block;
+    width: 50%;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+
+}
+
+.plusicon{
+    width: 50%;
+    height: 50%;
+}
+
+.peach{
+
+    background-color: #F6B192;
+    color: black;
+}
+
+.darkpeach{
+    background-color: #F6D993;
 }
 
 .event {
@@ -104,4 +132,20 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+.NameDescription{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.Status{
+    text-align: left;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.material-icons{
+    margin-top: 13px;
 }

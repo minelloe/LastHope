@@ -1,46 +1,236 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+
+localStorage.setItem('UserAmount', 0);
+
+firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+
+        if (localStorage.getItem('SignUpNecessary') == 'false') {
+            localStorage.setItem('SignUpNecessary', null);
+            window.location.href = "index.html";
+            console.log("User is signed in");
+
+            var user = firebase.auth().currentUser;
+            console.log("signupnecessary2 " + localStorage.getItem('SignUpNecessary'));
+        }
+
+
+        if (user != null) {
+
+
+
+        }
+
+    } else {
+
+        if (localStorage.getItem('SignUpNecessary') == 'true') {
+            localStorage.setItem('SignUpNecessary', 'false');
+            window.location.href = "login.html";
+            console.log("User isn't signed in");
+            console.log("signupnecessary2 " + localStorage.getItem('SignUpNecessary'));
+
+
+        }
+
+
+
+    }
+});
+
+
+
+
+
+function logout() {
+    firebase.auth().signOut();
+    localStorage.setItem('SignUpNecessary', true);
+}
+
+function login() {
+    var email = document.getElementById('email').value;
+    console.log("email: " + email);
+    var password = document.getElementById('password').value;
+    console.log("password: " + password);
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+
+        // ...
+    });
+}
+
+function signup() {
+
+
+    
+
+    
+
+    console.log("Useramount was counted");
+    window.location.href = "signup.html";
+    var ref = firebase.database().ref("Users/");
+    ref.on("value", function (data) {
+        localStorage.setItem('UserAmount', data.numChildren());
+
+
+    });
+
+    
+   
+    
+    console.log("refresed");
+
+
+    var ref = firebase.database().ref("Users/");
+    ref.on("value", function (data) {
+        localStorage.setItem('UserAmount', data.numChildren());
+
+
+    });
+    console.log("Useramount was counted again");
+}
+
+function newuser() {
+    
+
+
+    console.log("Useramount was counted");
+
+
+    var newemail = document.getElementById('email_signup').value;
+    var newpassword = document.getElementById('password_signup').value;
+
+    var newusername = document.getElementById('username_signup').value;
+
+    var newfirstname = document.getElementById('firstname_signup').value;
+    var firebaseRef = firebase.database().ref('Users/' + newusername);
+    console.log("amount: " + localStorage.getItem('UserAmount'));
+    firebaseRef.child("FirstName").set(newfirstname);
+
+    var newlastname = document.getElementById('lastname_signup').value;
+    var firebaseRef = firebase.database().ref('Users/' + newusername);
+    console.log("amount: " + localStorage.getItem('UserAmount'));
+    firebaseRef.child("LastName").set(newlastname);
+
+    var newbirthday = document.getElementById('birthday_signup').value;
+    var firebaseRef = firebase.database().ref('Users/' + newusername);
+    console.log("amount: " + localStorage.getItem('UserAmount'));
+    firebaseRef.child("Birthday").set(newbirthday);
+
+    console.log("Person was created");
+
+
+    firebase.auth().createUserWithEmailAndPassword(newemail, newpassword).catch(function (error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+        // ...
+    });
+    
+
+}
+
+
+var address = {
+    'longitude': 55454564,
+    'latitude': 64564654,
+    'street': 'Hauptstrasse',
+    'streetNumber': 99,
+    'zip': 8570,
+    'city': 'Weinfelden',
+    'type': 'private'
+}
+
 var app = {
     // Application Constructor
-    initialize: function() {
+    initialize: function () {
+
+        console.log('app.initalize()');
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+
+        var user = firebase.auth().currentUser;
+
+        if (user) {
+            if (localStorage.getItem('SignUpNecessary') == 'false') {
+                window.location.href = "index.html";
+                console.log("User is signed in");
+
+                var user = firebase.auth().currentUser;
+                console.log("User is signed in" + user);
+                console.log("signupnecessary1 " + localStorage.getItem('SignUpNecessary'));
+            }
+
+
+        } else {
+            if (localStorage.getItem('SignUpNecessary') != 'true') {
+
+            }
+
+            if (localStorage.getItem('SignUpNecessary') == null) {
+                localStorage.setItem('SignUpNecessary', 'true');
+            }
+
+
+
+
+            if (localStorage.getItem('SignUpNecessary') == 'true') {
+                localStorage.setItem('SignUpNecessary', 'false');
+                window.location = "login.html";
+                console.log("necessary: " + necessary);
+                console.log("signupnecessary1 " + localStorage.getItem('SignUpNecessary'));
+
+            }
+
+
+
+        }
+
+        var ref = firebase.database().ref("Users/");
+    ref.on("value", function (data) {
+        localStorage.setItem('UserAmount', data.numChildren());
+
+
+    });
+
+        document.addEventListener('prechange', function (event) {
+            document.querySelector('ons-toolbar .center')
+                .innerHTML = event.tabItem.getAttribute('label');
+        });
+
+
     },
 
     // deviceready Event Handler
     //
     // Bind any cordova events here. Common events are:
     // 'pause', 'resume', etc.
-    onDeviceReady: function() {
+    onDeviceReady: function () {
+        console.log('onDeviceReady()');
         this.receivedEvent('deviceready');
     },
 
     // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+    receivedEvent: function (id) {
+        //var parentElement = document.getElementById(id);
+        //var listeningElement = parentElement.querySelector('.listening');
+        //var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        //listeningElement.setAttribute('style', 'display:none;');
+        //receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+
+    helloWorld: function (data) {
+        console.log('Hello World() Hello ' + data);
+        console.log(address);
     }
 };
 
 app.initialize();
+app.helloWorld("World");
