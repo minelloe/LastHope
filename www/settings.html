@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval';
@@ -14,30 +15,31 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="icon" href="img/logo.png" />
 
     <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
     <link rel="stylesheet" type="text/css" href="css/onsenui.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
-    <script  src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
-  <script  src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
-  <script  src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
-  <script  src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 
-  <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyDzIBZhqlaRr7YqM8C-mf-Bg3VdQNBl_Ao",
-        authDomain: "losthope-1f4ac.firebaseapp.com",
-        databaseURL: "https://losthope-1f4ac.firebaseio.com",
-        projectId: "losthope-1f4ac",
-        storageBucket: "",
-        messagingSenderId: "184724198539",
-        appId: "1:184724198539:web:b3a525a4a7993d17d6b08e",
-        measurementId: "G-86P89W5DKD"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDzIBZhqlaRr7YqM8C-mf-Bg3VdQNBl_Ao",
+            authDomain: "losthope-1f4ac.firebaseapp.com",
+            databaseURL: "https://losthope-1f4ac.firebaseio.com",
+            projectId: "losthope-1f4ac",
+            storageBucket: "",
+            messagingSenderId: "184724198539",
+            appId: "1:184724198539:web:b3a525a4a7993d17d6b08e",
+            measurementId: "G-86P89W5DKD"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
 
 
@@ -46,7 +48,7 @@
 
 <body>
     <ons-page id="settings">
-            <ons-button onclick="signout()">Sign out</ons-button>
+
         <!--Picture-->
         <ons-toolbar>
             <div class="center">Settings</div>
@@ -75,24 +77,29 @@
                 <p>
                     <ons-input id="Status" modifier="underbar" placeholder="Status" float></ons-input>
                 </p>
-                <p style="margin-top: 30px;">
-                    <ons-button onclick="save()">Save</ons-button>
-                  </p>
+                <p style="margin-top: 10px;">
+                    <ons-button style="background-color: #F6B192; color: white" onclick="save()">Save</ons-button>
+                </p>
+                <p style="margin-top: 25px;">
+                    <ons-button style="background-color: #F6D993; color: white" modifier="large" onclick="logout()">Sign
+                        out</ons-button>
+                </p>
             </div>
 
 
             <!--Go-Back-Button-->
 
-            <ons-fab type=button onClick="location.href='index.html'" position="top right">
+            <ons-fab type=button style="background-color: #F6B192; color: white" onClick="location.href='index.html'"
+                position="top right">
                 <i class="material-icons">
                     arrow_back
                 </i>
             </ons-fab>
         </ons-page>
 
-        
+
         </template>
-        
+
 
         <script type="text/javascript" src="cordova.js">
         </script>

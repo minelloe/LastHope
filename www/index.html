@@ -12,138 +12,178 @@
         frame-src *;
         connect-src *;
         ">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
-  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-  <link rel="stylesheet" type="text/css" href="css/index.css">
-  <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
-  <link rel="stylesheet" type="text/css" href="css/onsenui.min.css">
-  
-  <script  src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
-  <script  src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
-  <script  src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
-  <script  src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
+    <link rel="stylesheet" type="text/css" href="css/onsenui.min.css">
+    <link rel="icon" href="img/logo.png" />
 
-  <script>
-      // Your web app's Firebase configuration
-      var firebaseConfig = {
-        apiKey: "AIzaSyDzIBZhqlaRr7YqM8C-mf-Bg3VdQNBl_Ao",
-        authDomain: "losthope-1f4ac.firebaseapp.com",
-        databaseURL: "https://losthope-1f4ac.firebaseio.com",
-        projectId: "losthope-1f4ac",
-        storageBucket: "",
-        messagingSenderId: "184724198539",
-        appId: "1:184724198539:web:b3a525a4a7993d17d6b08e",
-        measurementId: "G-86P89W5DKD"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDzIBZhqlaRr7YqM8C-mf-Bg3VdQNBl_Ao",
+            authDomain: "losthope-1f4ac.firebaseapp.com",
+            databaseURL: "https://losthope-1f4ac.firebaseio.com",
+            projectId: "losthope-1f4ac",
+            storageBucket: "",
+            messagingSenderId: "184724198539",
+            appId: "1:184724198539:web:b3a525a4a7993d17d6b08e",
+            measurementId: "G-86P89W5DKD"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
     </script>
 
-  <title>Main</title>
+    <title>Main</title>
 </head>
 
 <body>
+    <!--Different Tabs-->
+    <ons-page>
+        <ons-tabbar swipeable position="bottom">
+            <ons-tab page="tab1.html">
+                <i class="material-icons">
+                    people
+                </i>
+            </ons-tab>
 
+            <ons-tab page="tab2.html">
+                <i class="material-icons">
+                    favorite
+                </i>
+            </ons-tab>
 
-
-
-
-
-
-  <!--Different Tabs-->
-  <ons-page>
-    <ons-tabbar swipeable position="auto">
-        <ons-tab page="tab1.html">
-            <i class="material-icons">
-                people
-            </i>
-        </ons-tab>
-
-        <ons-tab page="tab2.html">
-            <i class="material-icons">
-                favorite
-            </i>
-        </ons-tab>
-
-        <ons-tab page="tab3.html">
-            <i class="material-icons">
-                person
-            </i>
-        </ons-tab>
-    </ons-tabbar>
-</ons-page>
-
-<template id="tab1.html">
-    <ons-page id="peach">
-        <ons-button modifier="large" onclick="logout()">Sign out</ons-button>
-        <!--List of friends-->
-
-        <ons-list>
-            <ons-list-header>matches</ons-list-header>
-            <ons-list-item>
-                <div class="left peach">
-                    <img class="list-item__thumbnail"
-                        src="https://images-na.ssl-images-amazon.com/images/I/61SPCbRG5WL._SX466_.jpg">
-                </div>
-                <div class="center peach">
-                    <span class="list-item__title">Shrek</span><span class="list-item__subtitle">Loves you
-                    </span>
-                </div>
-            </ons-list-item>
-            <ons-list-header>liked</ons-list-header>
-            <ons-list-item>
-                <div class="left peach">
-                    <img class="list-item__thumbnail" src="https://i.ytimg.com/vi/iq7Y6Tr3A40/maxresdefault.jpg">
-                </div>
-                <div class="center peach">
-                    <span class="list-item__title">Shrek</span><span class="list-item__subtitle">very
-                        much</span>
-                </div>
-            </ons-list-item>
-            <br />
-        </ons-list>
+            <ons-tab page="tab3.html">
+                <i class="material-icons">
+                    person
+                </i>
+            </ons-tab>
+        </ons-tabbar>
     </ons-page>
-</template>
 
-<template id="tab2.html">
-    <ons-page id="Home">
-    </ons-page>
-</template>
-<template id="tab3.html">
-    <ons-page id="Profile">
-        <!--Picture-->
-        <ons-page>
-            <img class="profilepicture"
-                src="http://images6.fanpop.com/image/photos/41400000/Five-nights-at-Shrek-s-shrek-41412516-1280-720.jpg"
-                alt="Onsen UI">
-            <div class="NameDescription">
-                Shrek, 18
-            </div>
-            <div class="Status">
-                Ich bin ein sehr offener Mensch. Ich mag gern grüne Sachen huihui......
-            </div>
-
-            <!--Settings- and Picture-Button-->
-    
-            <ons-fab type=button onClick="location.href='settings.html'" position ="top right">
-                <ons-icon icon="md-settings"></ons-icon>
-            </ons-fab>
-
-            <ons-fab type=button onClick="location.href='https://google.com'" position="bottom right">
-                <ons-icon class="plusicon" icon="md-plus"></ons-icon>
-            </ons-fab>
+    <template id="tab1.html">
+        <ons-page id="peach">
+            <ons-button style="background-color: #F6D993; color: white" modifier="large" onclick="logout()">Sign out
+            </ons-button>
+            <!--List of friends-->
+            <ons-list>
+                <ons-list-header>matches</ons-list-header>
+                <ons-list-item>
+                    <div class="left peach">
+                        <img class="list-item__thumbnail"
+                            src="https://images-na.ssl-images-amazon.com/images/I/61SPCbRG5WL._SX466_.jpg">
+                    </div>
+                    <div class="center peach">
+                        <span class="list-item__title">Shrek</span><span class="list-item__subtitle">Loves you
+                        </span>
+                    </div>
+                </ons-list-item>
+                <ons-list-header>liked</ons-list-header>
+                <ons-list-item>
+                    <div class="left peach">
+                        <img class="list-item__thumbnail" src="https://i.ytimg.com/vi/iq7Y6Tr3A40/maxresdefault.jpg">
+                    </div>
+                    <div class="center peach">
+                        <span class="list-item__title">Shrek</span><span class="list-item__subtitle">very
+                            much</span>
+                    </div>
+                </ons-list-item>
+                <br />
+            </ons-list>
         </ons-page>
-    </ons-page>
-</template>
+    </template>
 
-  <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="js/onsenui.min.js"></script>
-  <script type="text/javascript" src="js/index.js"></script>
+    <template id="tab2.html">
+        <ons-page id="Home">
+            <ons-page>
+                <img class="profilepicture" src="http://de.fanpop.com/images/polls/915_2_full.jpg?v=1179317622"
+                    alt="Onsen UI">
+
+                <div class="NameDescription">
+                    Fiona, 19
+                </div>
+                <div class="Status">
+                    Ich mag gebratenes Hühnchen ;) :3 uwu
+                </div>
+
+                <!--Settings- and Picture-Button-->
+                <div class="likebuttons">
+                    <ons-fab type=button style="background-color: #F6B192; color: white; margin-left: 85px;"
+                        onClick="makeAlert()">
+                        <i class="material-icons">not_interested</i>
+                    </ons-fab>
+
+                    <ons-fab type=button style="background-color: #F6B192; color: white; margin-left: 35px;"
+                        onClick="makeAlert2()">
+                        <ons-icon class="plusicon" icon="md-plus"></ons-icon>
+                    </ons-fab>
+                </div>
+            </ons-page>
+        </ons-page>
+    </template>
+
+    <template id="tab3.html">
+        <ons-page id="Profile">
+            <!--Picture-->
+            <ons-page>
+                <img class="profilepicture"
+                    src="http://images6.fanpop.com/image/photos/41400000/Five-nights-at-Shrek-s-shrek-41412516-1280-720.jpg"
+                    alt="Onsen UI">
+
+                <div class="NameDescription">
+                    Shrek, 18
+                </div>
+                <div class="Status">
+                    Ich bin ein sehr offener Mensch. Ich mag gern grüne Sachen huihui......
+                </div>
+
+                <!--Settings- and Picture-Button-->
+
+                <ons-fab type=button style="background-color: #F6B192; color: white"
+                    onClick="location.href='settings.html'" position="top right">
+                    <ons-icon icon="md-settings"></ons-icon>
+                </ons-fab>
+
+                <ons-fab type=button style="background-color: #F6B192; color: white"
+                    onClick="location.href='https://google.com'" position="bottom right">
+                    <ons-icon class="plusicon" icon="md-plus"></ons-icon>
+                </ons-fab>
+            </ons-page>
+        </ons-page>
+    </template>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/onsenui.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 
 
 
- 
+    <ons-alert-dialog id="dialog-1">
+        <div class="alert-dialog-title">Dismiss!</div>
+        <div class="alert-dialog-content">
+            You rejected this profile!
+        </div>
+        <div class="alert-dialog-footer">
+            <ons-alert-dialog-button onClick="deleteAlert()">OK</ons-alert-dialog-button>
+        </div>
+    </ons-alert-dialog>
+
+    <ons-alert-dialog id="dialog-2">
+        <div class="alert-dialog-title">Love!</div>
+        <div class="alert-dialog-content">
+            You liked this profile!
+        </div>
+        <div class="alert-dialog-footer">
+            <ons-alert-dialog-button onClick="deleteAlert2()">OK</ons-alert-dialog-button>
+        </div>
+    </ons-alert-dialog>
 </body>
 
 </html>

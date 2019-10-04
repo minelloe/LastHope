@@ -65,9 +65,9 @@ function login() {
 function signup() {
 
 
-    
 
-    
+
+
 
     console.log("Useramount was counted");
     window.location.href = "signup.html";
@@ -78,9 +78,9 @@ function signup() {
 
     });
 
-    
-   
-    
+
+
+
     console.log("refresed");
 
 
@@ -94,7 +94,7 @@ function signup() {
 }
 
 function newuser() {
-    
+
 
 
     console.log("Useramount was counted");
@@ -131,7 +131,7 @@ function newuser() {
         window.alert("Error : " + errorMessage);
         // ...
     });
-    
+
 
 }
 
@@ -191,11 +191,11 @@ var app = {
         }
 
         var ref = firebase.database().ref("Users/");
-    ref.on("value", function (data) {
-        localStorage.setItem('UserAmount', data.numChildren());
+        ref.on("value", function (data) {
+            localStorage.setItem('UserAmount', data.numChildren());
 
 
-    });
+        });
 
         document.addEventListener('prechange', function (event) {
             document.querySelector('ons-toolbar .center')
@@ -234,3 +234,23 @@ var app = {
 
 app.initialize();
 app.helloWorld("World");
+
+function makeAlert(){
+    document
+  .getElementById('dialog-1')
+  .show();
+}
+
+function makeAlert2(){
+    document
+  .getElementById('dialog-2')
+  .show();
+}
+
+function deleteAlert(){
+    document.getElementById('dialog-1').hide();
+}
+
+function deleteAlert2(){
+    document.getElementById('dialog-2').hide();
+}
