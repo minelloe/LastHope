@@ -2,7 +2,9 @@
 <html>
 
 <head>
+    <!--Material-Icons-Link-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Security-->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval';
         style-src * 'unsafe-inline';
         script-src * 'unsafe-inline';
@@ -15,16 +17,19 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <!--OnsenUI-Links-->
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
     <link rel="stylesheet" type="text/css" href="css/onsenui.min.css">
+    <!--Favicon-->
     <link rel="icon" href="img/logo.png" />
-
+    <!--Firebase-Links-->
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 
+    <!--Firebase-Setup-->
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -40,26 +45,28 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
-
-    <title>Main</title>
+    <!--Title of Website-->
+    <title>Last Hope</title>
 </head>
 
 <body>
     <!--Different Tabs-->
     <ons-page>
+        <!--Tabbar-->
         <ons-tabbar swipeable position="bottom">
+            <!--Friends-Tab-->
             <ons-tab page="tab1.html">
                 <i class="material-icons">
                     people
                 </i>
             </ons-tab>
-
+            <!--Home-Tab-->
             <ons-tab page="tab2.html">
                 <i class="material-icons">
                     favorite
                 </i>
             </ons-tab>
-
+            <!--Profile-Tab-->
             <ons-tab page="tab3.html">
                 <i class="material-icons">
                     person
@@ -68,12 +75,14 @@
         </ons-tabbar>
     </ons-page>
 
+    <!--Tab1-->
     <template id="tab1.html">
         <ons-page id="peach">
             <ons-button style="background-color: #F6D993; color: white" modifier="large" onclick="logout()">Sign out
             </ons-button>
             <!--List of friends-->
             <ons-list>
+                <!--Matches-List-->
                 <ons-list-header>matches</ons-list-header>
                 <ons-list-item>
                     <div class="left peach">
@@ -85,6 +94,7 @@
                         </span>
                     </div>
                 </ons-list-item>
+                <!--Liked-List-->
                 <ons-list-header>liked</ons-list-header>
                 <ons-list-item>
                     <div class="left peach">
@@ -100,26 +110,30 @@
         </ons-page>
     </template>
 
+    <!--Tab 2-->
     <template id="tab2.html">
         <ons-page id="Home">
             <ons-page>
+                <!--Profile-Picture-->
                 <img class="profilepicture" src="http://de.fanpop.com/images/polls/915_2_full.jpg?v=1179317622"
                     alt="Onsen UI">
-
+                <!--Name-Description-->
                 <div class="NameDescription">
                     Fiona, 19
                 </div>
+                <!--Status-->
                 <div class="Status">
                     Ich mag gebratenes Hühnchen ;) :3 uwu
                 </div>
 
                 <!--Settings- and Picture-Button-->
                 <div class="likebuttons">
+                    <!--Dislike-->
                     <ons-fab type=button style="background-color: #F6B192; color: white; margin-left: 85px;"
                         onClick="makeAlert()">
                         <i class="material-icons">not_interested</i>
                     </ons-fab>
-
+                    <!--Like-->
                     <ons-fab type=button style="background-color: #F6B192; color: white; margin-left: 35px;"
                         onClick="makeAlert2()">
                         <ons-icon class="plusicon" icon="md-plus"></ons-icon>
@@ -129,28 +143,30 @@
         </ons-page>
     </template>
 
+    <!--Tab 3-->
     <template id="tab3.html">
         <ons-page id="Profile">
             <!--Picture-->
             <ons-page>
+                <!--Profile-Picture-->
                 <img class="profilepicture"
                     src="http://images6.fanpop.com/image/photos/41400000/Five-nights-at-Shrek-s-shrek-41412516-1280-720.jpg"
                     alt="Onsen UI">
-
+                <!--Name-Description-->
                 <div class="NameDescription">
                     Shrek, 18
                 </div>
+                <!--Status-->
                 <div class="Status">
                     Ich bin ein sehr offener Mensch. Ich mag gern grüne Sachen huihui......
                 </div>
 
-                <!--Settings- and Picture-Button-->
-
+                <!--Settings-Button-->
                 <ons-fab type=button style="background-color: #F6B192; color: white"
                     onClick="location.href='settings.html'" position="top right">
                     <ons-icon icon="md-settings"></ons-icon>
                 </ons-fab>
-
+                <!--Picture-Add-Button-->
                 <ons-fab type=button style="background-color: #F6B192; color: white"
                     onClick="location.href='https://google.com'" position="bottom right">
                     <ons-icon class="plusicon" icon="md-plus"></ons-icon>
@@ -159,27 +175,30 @@
         </ons-page>
     </template>
 
+    <!--Scripts-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/onsenui.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 
-
-
+    <!--Alert-Dislike-->
     <ons-alert-dialog id="dialog-1">
         <div class="alert-dialog-title">Dismiss!</div>
         <div class="alert-dialog-content">
             You rejected this profile!
         </div>
+        <!--Close Alert-->
         <div class="alert-dialog-footer">
             <ons-alert-dialog-button onClick="deleteAlert()">OK</ons-alert-dialog-button>
         </div>
     </ons-alert-dialog>
 
+    <!--Altert-Like-->
     <ons-alert-dialog id="dialog-2">
         <div class="alert-dialog-title">Love!</div>
         <div class="alert-dialog-content">
             You liked this profile!
         </div>
+        <!--Close Alert-->
         <div class="alert-dialog-footer">
             <ons-alert-dialog-button onClick="deleteAlert2()">OK</ons-alert-dialog-button>
         </div>

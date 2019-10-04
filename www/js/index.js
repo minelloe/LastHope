@@ -4,7 +4,6 @@ localStorage.setItem('UserAmount', 0);
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
-
         if (localStorage.getItem('SignUpNecessary') == 'false') {
             localStorage.setItem('SignUpNecessary', null);
             window.location.href = "index.html";
@@ -14,32 +13,18 @@ firebase.auth().onAuthStateChanged(function (user) {
             console.log("signupnecessary2 " + localStorage.getItem('SignUpNecessary'));
         }
 
-
         if (user != null) {
-
-
-
         }
 
     } else {
-
         if (localStorage.getItem('SignUpNecessary') == 'true') {
             localStorage.setItem('SignUpNecessary', 'false');
             window.location.href = "login.html";
             console.log("User isn't signed in");
             console.log("signupnecessary2 " + localStorage.getItem('SignUpNecessary'));
-
-
         }
-
-
-
     }
 });
-
-
-
-
 
 function logout() {
     firebase.auth().signOut();
@@ -57,50 +42,31 @@ function login() {
         var errorMessage = error.message;
 
         window.alert("Error : " + errorMessage);
-
-        // ...
     });
 }
 
 function signup() {
-
-
-
-
-
-
     console.log("Useramount was counted");
     window.location.href = "signup.html";
     var ref = firebase.database().ref("Users/");
     ref.on("value", function (data) {
         localStorage.setItem('UserAmount', data.numChildren());
-
-
     });
 
-
-
-
     console.log("refresed");
-
 
     var ref = firebase.database().ref("Users/");
     ref.on("value", function (data) {
         localStorage.setItem('UserAmount', data.numChildren());
-
-
     });
     console.log("Useramount was counted again");
 }
 
 function newuser() {
-
-
-
     console.log("Useramount was counted");
 
-
     var newemail = document.getElementById('email_signup').value;
+
     var newpassword = document.getElementById('password_signup').value;
 
     var newusername = document.getElementById('username_signup').value;
@@ -122,34 +88,18 @@ function newuser() {
 
     console.log("Person was created");
 
-
     firebase.auth().createUserWithEmailAndPassword(newemail, newpassword).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
 
         window.alert("Error : " + errorMessage);
-        // ...
     });
-
-
-}
-
-
-var address = {
-    'longitude': 55454564,
-    'latitude': 64564654,
-    'street': 'Hauptstrasse',
-    'streetNumber': 99,
-    'zip': 8570,
-    'city': 'Weinfelden',
-    'type': 'private'
 }
 
 var app = {
     // Application Constructor
     initialize: function () {
-
         console.log('app.initalize()');
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 
@@ -165,44 +115,31 @@ var app = {
                 console.log("signupnecessary1 " + localStorage.getItem('SignUpNecessary'));
             }
 
-
         } else {
             if (localStorage.getItem('SignUpNecessary') != 'true') {
-
             }
 
             if (localStorage.getItem('SignUpNecessary') == null) {
                 localStorage.setItem('SignUpNecessary', 'true');
             }
 
-
-
-
             if (localStorage.getItem('SignUpNecessary') == 'true') {
                 localStorage.setItem('SignUpNecessary', 'false');
                 window.location = "login.html";
                 console.log("necessary: " + necessary);
                 console.log("signupnecessary1 " + localStorage.getItem('SignUpNecessary'));
-
             }
-
-
-
         }
 
         var ref = firebase.database().ref("Users/");
         ref.on("value", function (data) {
             localStorage.setItem('UserAmount', data.numChildren());
-
-
         });
 
         document.addEventListener('prechange', function (event) {
             document.querySelector('ons-toolbar .center')
                 .innerHTML = event.tabItem.getAttribute('label');
         });
-
-
     },
 
     // deviceready Event Handler
@@ -224,11 +161,6 @@ var app = {
         //receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    },
-
-    helloWorld: function (data) {
-        console.log('Hello World() Hello ' + data);
-        console.log(address);
     }
 };
 

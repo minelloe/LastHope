@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <!--Material-Icons-Links-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!--Security-->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval';
         style-src * 'unsafe-inline';
         script-src * 'unsafe-inline';
@@ -15,17 +16,19 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <!--Favicon-->
     <link rel="icon" href="img/logo.png" />
-
+    <!--OnsenUI-Links-->
     <link rel="stylesheet" type="text/css" href="css/onsen-css-components.min.css">
     <link rel="stylesheet" type="text/css" href="css/onsenui.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-
+    <!--Firebase-Links-->
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"></script>
 
+    <!--Firebase-Setup-->
     <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
@@ -42,10 +45,9 @@
         firebase.initializeApp(firebaseConfig);
     </script>
 
-
+    <!--Title of Site-->
     <title>Settings</title>
 </head>
-
 <body>
     <ons-page id="settings">
 
@@ -54,6 +56,7 @@
             <div class="center">Settings</div>
         </ons-toolbar>
         <ons-page>
+            <!--Profile-Picture-->
             <img class="profilepicture"
                 src="http://images6.fanpop.com/image/photos/41400000/Five-nights-at-Shrek-s-shrek-41412516-1280-720.jpg"
                 alt="Onsen UI">
@@ -80,15 +83,14 @@
                 <p style="margin-top: 10px;">
                     <ons-button style="background-color: #F6B192; color: white" onclick="save()">Save</ons-button>
                 </p>
+                <!--SignOut-Button-->
                 <p style="margin-top: 25px;">
                     <ons-button style="background-color: #F6D993; color: white" modifier="large" onclick="logout()">Sign
                         out</ons-button>
                 </p>
             </div>
 
-
             <!--Go-Back-Button-->
-
             <ons-fab type=button style="background-color: #F6B192; color: white" onClick="location.href='index.html'"
                 position="top right">
                 <i class="material-icons">
@@ -96,21 +98,13 @@
                 </i>
             </ons-fab>
         </ons-page>
+    </ons-page>
 
-
-        </template>
-
-
-        <script type="text/javascript" src="cordova.js">
-        </script>
-        <script type="text/javascript" src="js/onsenui.min.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-
-        <script>
-
-
-
-        </script>
+    <!--Scripts-->
+    <script type="text/javascript" src="cordova.js">
+    </script>
+    <script type="text/javascript" src="js/onsenui.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>
